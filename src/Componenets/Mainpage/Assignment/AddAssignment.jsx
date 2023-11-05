@@ -1,6 +1,11 @@
-import Swal from "sweetalert2";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
+import useAxios from '../../../Hooks/useAxios';
+
 
 const AddAssignment = () => {
+const Axios = useAxios();
+const url = '/assignment'
 
     const hendleaddProduct = (event) => {
         event.preventDefault();
@@ -11,10 +16,18 @@ const AddAssignment = () => {
         const level = form.level.value;
         const img = form.img.value;
         const thumbnail = form.thumbnail.value;
+        const date = form.date.value;
         const assignmentdetails = {
-            title, description, marks, level, img, thumbnail
+            title, description, marks, level, img, thumbnail, date
         }
         console.log(assignmentdetails)
+        Axios.post(url,assignmentdetails)
+        .then(res=>{
+            console.log(res)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
 
     }
     return (
@@ -71,12 +84,21 @@ const AddAssignment = () => {
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Photo Url</span>
+                            <span className="label-text">Date</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" placeholder="Photo url" name="img" className="input input-bordered w-full" />
+                            <input type="date" placeholder="Date" name="date" className="input input-bordered w-full" />
+                            {/* <DatePicker className='' formatDate="dd/mm/yyyy" ></DatePicker> */}
                         </label>
                     </div>
+                </div>
+                <div className="form-control md:w-full">
+                    <label className="label">
+                        <span className="label-text">Photo Url</span>
+                    </label>
+                    <label className="input-group">
+                        <input type="text" placeholder="Photo url" name="img" className="input input-bordered w-full" />
+                    </label>
                 </div>
                 <input type="submit" value="Add Product" className="w-full mt-5 btn btn-success" />
             </div>
