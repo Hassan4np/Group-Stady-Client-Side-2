@@ -1,6 +1,7 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import useAxios from '../../../Hooks/useAxios';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const AddAssignment = () => {
@@ -15,18 +16,22 @@ const url = '/assignment'
         const marks = form.marks.value;
         const level = form.level.value;
         const img = form.img.value;
-        const thumbnail = form.thumbnail.value;
         const date = form.date.value;
         const assignmentdetails = {
-            title, description, marks, level, img, thumbnail, date
+            title, description, marks, level, img, date
         }
-        console.log(assignmentdetails)
         Axios.post(url,assignmentdetails)
         .then(res=>{
-            console.log(res)
+            console.log(res.data.acknowledged)
+            if(res.data.acknowledged){
+                toast.success('Successfully toasted!')
+            }
         })
         .catch(error=>{
             console.log(error)
+            if(error){
+                toast.error("This didn't work.")
+            }
         })
 
     }
@@ -63,10 +68,10 @@ const url = '/assignment'
                     </div>
                     <div className="form-control md:w-1/2 ">
                         <label className="label">
-                            <span className="label-text">Thumbnail</span>
+                            <span className="label-text">Thumbnail Url</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" placeholder="Thumbnail" name="thumbnail" className="input input-bordered w-full" />
+                            <input type="text" placeholder="Thumbnail" name="img" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -77,7 +82,7 @@ const url = '/assignment'
                         </label>
                         <select className="select select-bordered w-full" name="level">
                             <option disabled selected>Select one</option>
-                            <option>Esey</option>
+                            <option>Easy</option>
                             <option>Medium</option>
                             <option>Hard</option>
                         </select>
@@ -92,15 +97,7 @@ const url = '/assignment'
                         </label>
                     </div>
                 </div>
-                <div className="form-control md:w-full">
-                    <label className="label">
-                        <span className="label-text">Photo Url</span>
-                    </label>
-                    <label className="input-group">
-                        <input type="text" placeholder="Photo url" name="img" className="input input-bordered w-full" />
-                    </label>
-                </div>
-                <input type="submit" value="Add Product" className="w-full mt-5 btn btn-success" />
+                <input type="submit" value="Add Assignment" className="w-full mt-5 btn btn-success" />
             </div>
         </form>
     );

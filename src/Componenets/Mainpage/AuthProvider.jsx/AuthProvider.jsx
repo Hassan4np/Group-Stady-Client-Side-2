@@ -37,12 +37,12 @@ const AuthProvider = ({children}) => {
             setloading(false)
             if(current){
                 const loginemail  = {email:current?.email};
-                axios.post('http://localhost:5001/jwt',loginemail,{withCredentials:true})
+                axios.post('http://localhost:5000/jwt',loginemail,{withCredentials:true})
                 .then(res=>{
                     console.log(res.data)
                 })
             }else{
-                axios.post('http://localhost:5001/logout',user?.email,{withCredentials:true})
+                axios.post('http://localhost:5000/logout',user?.email,{withCredentials:true})
                 .then(res=>{
                     console.log(res.data)
                 })

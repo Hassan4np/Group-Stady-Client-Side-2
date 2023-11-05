@@ -5,6 +5,7 @@ import { Mybrowser } from './Componenets/Mainpage/Router/Router.jsx'
 import { RouterProvider, } from "react-router-dom";
 import AuthProvider from './Componenets/Mainpage/AuthProvider.jsx/AuthProvider';
 import { QueryClient, QueryClientProvider, useQuery, } from '@tanstack/react-query';
+import toast, { Toaster } from 'react-hot-toast';
 
 const queryClient = new QueryClient()
 
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <AuthProvider>
           <RouterProvider router={Mybrowser} />
         </AuthProvider>
+        <Toaster />
       </QueryClientProvider>
     </div>
   </React.StrictMode>,
