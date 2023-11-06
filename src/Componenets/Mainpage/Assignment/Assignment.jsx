@@ -17,7 +17,7 @@ const Assignment = () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending, error, data } = useQuery({
+    const { isPending, error, refetch, data } = useQuery({
         queryKey: ['assignment'],
         queryFn: getassignmentdata,
 
@@ -28,6 +28,13 @@ const Assignment = () => {
     const hengledelete = (id) => {
         console.log(id)
         Axios.delete(`/assginment?email=${user?.email}&id=${id}`)
+        .then(res=>{
+            console.log(res)
+            refetch()
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
     return (
         <div className="min-h-[350px]">

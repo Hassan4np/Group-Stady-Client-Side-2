@@ -6,9 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const DetailsAssignment = () => {
     const { id } = useParams();
-    console.log(id)
     const { user } = useAuth();
-    console.log(id)
     const Axios = useAxios()
     const url = `/assignment/${id}`;
 
