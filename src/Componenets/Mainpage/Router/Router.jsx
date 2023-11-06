@@ -11,6 +11,12 @@ import UpdateAssignment from "../Assignment/UpdateAssignment";
 import DetailsAssignment from "../Assignment/DetailsAssignment";
 import SubmitFrom from "../AssignmentSubmit/SubmitFrom";
 import Submitmarks from "../AssignmentSubmit/Submitmarks";
+import DetailsAssignmentprivate from "../../../PrivateRout/DetailsAssignmentprivate";
+import Submitformprivate from "../../../PrivateRout/Submitformprivate";
+import Submitedprivate from "../../../PrivateRout/Submitedprivate";
+import Updateprivate from "../../../PrivateRout/Updateprivate";
+import AddAssignmentprivate from "../../../PrivateRout/AddAssignmentprivate";
+import Markprivate from "../../../PrivateRout/Markprivate";
 
 
 const Mybrowser = createBrowserRouter([
@@ -37,27 +43,27 @@ const Mybrowser = createBrowserRouter([
       },
       {
         path: "/addassignment",
-        element: <AddAssignment></AddAssignment>
+        element: <AddAssignmentprivate><AddAssignment></AddAssignment></AddAssignmentprivate>
       },
       {
         path: "/submit",
-        element: <SubmitAssignment></SubmitAssignment>
+        element: <Submitedprivate><SubmitAssignment></SubmitAssignment></Submitedprivate>
       },
       {
         path:"/updateassignment/:id",
-        element:<UpdateAssignment></UpdateAssignment>
+        element:<Updateprivate><UpdateAssignment></UpdateAssignment></Updateprivate>
       },
       {
         path:"/viewassignment/:id",
-        element:<DetailsAssignment></DetailsAssignment>
+        element:<DetailsAssignmentprivate><DetailsAssignment></DetailsAssignment></DetailsAssignmentprivate>
       },
       {
         path:"/submitfrom/:id",
-        element:<SubmitFrom></SubmitFrom>
+        element:<Submitformprivate><SubmitFrom></SubmitFrom></Submitformprivate>
       },
       {
         path:"/submitmarks/:id",
-        element:<Submitmarks></Submitmarks>
+        element:<Markprivate><Submitmarks></Submitmarks></Markprivate>
       }
 
     ]

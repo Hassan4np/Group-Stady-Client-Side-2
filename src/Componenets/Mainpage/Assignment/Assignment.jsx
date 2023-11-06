@@ -31,11 +31,14 @@ const Assignment = () => {
         Axios.delete(`/assginment?email=${user?.email}&id=${id}`)
         .then(res=>{
             console.log(res.data)
-            
+            toast.success('Successfully toasted!')
             refetch()
         })
         .catch(error=>{
             console.log(error)
+            if(error){
+                toast.error("This didn't work.")
+            }
         })
     }
     return (

@@ -26,7 +26,7 @@ const UpdateAssignment = () => {
     if (isPending) {
         return <h1 className="text-5xl text-green-500">Loading...</h1>
     }
-    const { title, marks, img, description, level, date,_id } = data.data;
+    const { title, marks, img, description, level, date} = data.data;
 
     console.log(title)
     const hendleudateassignment = (event) => {
