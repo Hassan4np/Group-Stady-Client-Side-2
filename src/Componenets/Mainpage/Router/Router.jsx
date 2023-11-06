@@ -7,6 +7,7 @@ import Error from "../Page/Error";
 import Assignment from "../Assignment/Assignment";
 import AddAssignment from "../Assignment/AddAssignment";
 import SubmitAssignment from "../AssignmentSubmit/SubmitAssignment";
+import UpdateAssignment from "../Assignment/UpdateAssignment";
 
 
 const Mybrowser = createBrowserRouter([
@@ -39,6 +40,10 @@ const Mybrowser = createBrowserRouter([
         path: "/submit",
         element: <SubmitAssignment></SubmitAssignment>
       },
+      {
+        path:"/updateassignment/:id",
+        element:<UpdateAssignment></UpdateAssignment>
+      }
 
     ]
   },

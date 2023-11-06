@@ -2,9 +2,11 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import useAxios from '../../../Hooks/useAxios';
 import toast, { Toaster } from 'react-hot-toast';
+import useAuth from '../../../Hooks/useAuth';
 
 
 const AddAssignment = () => {
+    const {user} = useAuth()
 const Axios = useAxios();
 const url = '/assignment'
 
@@ -17,8 +19,9 @@ const url = '/assignment'
         const level = form.level.value;
         const img = form.img.value;
         const date = form.date.value;
+        const email = user.email;
         const assignmentdetails = {
-            title, description, marks, level, img, date
+            title, description, marks, level, img, date,email
         }
         Axios.post(url,assignmentdetails)
         .then(res=>{
