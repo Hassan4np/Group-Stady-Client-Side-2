@@ -10,6 +10,7 @@ import SubmitAssignment from "../AssignmentSubmit/SubmitAssignment";
 import UpdateAssignment from "../Assignment/UpdateAssignment";
 import DetailsAssignment from "../Assignment/DetailsAssignment";
 import SubmitFrom from "../AssignmentSubmit/SubmitFrom";
+import Submitmarks from "../AssignmentSubmit/Submitmarks";
 
 
 const Mybrowser = createBrowserRouter([
@@ -53,6 +54,10 @@ const Mybrowser = createBrowserRouter([
       {
         path:"/submitfrom/:id",
         element:<SubmitFrom></SubmitFrom>
+      },
+      {
+        path:"/submitmarks/:id",
+        element:<Submitmarks></Submitmarks>
       }
 
     ]

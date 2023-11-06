@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AiOutlineEdit } from 'react-icons/ai';
 import useAuth from '../../../Hooks/useAuth';
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const Assignment = () => {
@@ -29,7 +30,8 @@ const Assignment = () => {
         console.log(id)
         Axios.delete(`/assginment?email=${user?.email}&id=${id}`)
         .then(res=>{
-            console.log(res)
+            console.log(res.data)
+            
             refetch()
         })
         .catch(error=>{

@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../../Hooks/useAxios";
+import { Link } from "react-router-dom";
 
 
 const SubmitAssignment = () => {
@@ -18,7 +19,7 @@ const SubmitAssignment = () => {
     if (isPending) {
         return <h1 className="text-2xl text-green-600">Loading...</h1>
     }
-
+console.log(data.data)
     return (
         <div className='min-h-[350px]'>
             <div className="overflow-x-auto">
@@ -43,7 +44,7 @@ const SubmitAssignment = () => {
                         <td>{infodata.marks}</td>
                         <td>{infodata.username}</td>
                         <td>{infodata.status}</td>
-                        <button className="btn btn-sm bg-green-500">Give Marks</button>
+                       <Link to={`/submitmarks/${infodata._id}`}> <button className="btn btn-sm bg-green-500">Give Marks</button></Link>
                     </tr>)
                        }
                     </tbody>
