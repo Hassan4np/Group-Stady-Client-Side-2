@@ -14,7 +14,7 @@ const DetailsAssignment = () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending, error, data } = useQuery({
+    const { isPending, data } = useQuery({
         queryKey: ['assignment'],
         queryFn: getassignmentdata,
 
@@ -22,7 +22,7 @@ const DetailsAssignment = () => {
     if (isPending) {
         return <h1 className="text-5xl text-green-500">Loading...</h1>
     }
-    const { title, marks, img, description, level, date, _id } = data.data;
+    const { title, marks, img, description, level,  _id } = data.data;
 
     return (
         <div>

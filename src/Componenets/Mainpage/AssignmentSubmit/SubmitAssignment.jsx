@@ -10,7 +10,7 @@ const SubmitAssignment = () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending, error, refetch, data } = useQuery({
+    const { isPending,  data } = useQuery({
         queryKey: ['assignment'],
         queryFn: getassignmentdata,
 
@@ -18,7 +18,7 @@ const SubmitAssignment = () => {
     if (isPending) {
         return <h1 className="text-2xl text-green-600">Loading...</h1>
     }
-    const { title, marks, username,status} = data.data;
+
     return (
         <div className='min-h-[350px]'>
             <div className="overflow-x-auto">
