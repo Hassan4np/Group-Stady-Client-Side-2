@@ -8,6 +8,7 @@ import Assignment from "../Assignment/Assignment";
 import AddAssignment from "../Assignment/AddAssignment";
 import SubmitAssignment from "../AssignmentSubmit/SubmitAssignment";
 import UpdateAssignment from "../Assignment/UpdateAssignment";
+import DetailsAssignment from "../Assignment/DetailsAssignment";
 
 
 const Mybrowser = createBrowserRouter([
@@ -43,6 +44,10 @@ const Mybrowser = createBrowserRouter([
       {
         path:"/updateassignment/:id",
         element:<UpdateAssignment></UpdateAssignment>
+      },
+      {
+        path:"/viewassignment/:id",
+        element:<DetailsAssignment></DetailsAssignment>
       }
 
     ]
@@ -50,4 +55,4 @@ const Mybrowser = createBrowserRouter([
 ]);
 
 
-export { Mybrowser }
+export {Mybrowser}

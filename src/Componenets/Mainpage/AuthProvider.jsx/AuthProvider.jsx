@@ -49,7 +49,6 @@ const AuthProvider = ({children}) => {
             }
         })
     }, [])
-    console.log(user)
     //UserLogout------->
     const UserLogout = () => {
         setloading(true)

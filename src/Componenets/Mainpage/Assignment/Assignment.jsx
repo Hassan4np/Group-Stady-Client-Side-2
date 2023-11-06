@@ -25,7 +25,6 @@ const Assignment = () => {
     if (isPending) {
         return <h1 className="text-2xl text-green-600">Loading...</h1>
     }
-    console.log(data?.data)
     const hengledelete = (id) => {
         console.log(id)
         Axios.delete(`/assginment?email=${user?.email}&id=${id}`)

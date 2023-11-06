@@ -6,9 +6,9 @@ import useAuth from '../../../Hooks/useAuth';
 
 
 const AddAssignment = () => {
-    const {user} = useAuth()
-const Axios = useAxios();
-const url = '/assignment'
+    const { user } = useAuth()
+    const Axios = useAxios();
+    const url = '/assignment'
 
     const hendleaddProduct = (event) => {
         event.preventDefault();
@@ -21,21 +21,21 @@ const url = '/assignment'
         const date = form.date.value;
         const email = user.email;
         const assignmentdetails = {
-            title, description, marks, level, img, date,email
+            title, description, marks, level, img, date, email
         }
-        Axios.post(url,assignmentdetails)
-        .then(res=>{
-            console.log(res.data.acknowledged)
-            if(res.data.acknowledged){
-                toast.success('Successfully toasted!')
-            }
-        })
-        .catch(error=>{
-            console.log(error)
-            if(error){
-                toast.error("This didn't work.")
-            }
-        })
+        Axios.post(url, assignmentdetails)
+            .then(res => {
+                console.log(res.data.acknowledged)
+                if (res.data.acknowledged) {
+                    toast.success('Successfully toasted!')
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                if (error) {
+                    toast.error("This didn't work.")
+                }
+            })
 
     }
     return (
