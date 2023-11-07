@@ -120,7 +120,7 @@ const UpdateAssignment = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Update Assignment" className="w-full mt-5 btn btn-success" />
+                <input type="submit" value="Update Assignment" className="w-full mt-5 p-3 rounded-lg font-bold text-xl text-gradient bg-gradient-to-r from-blue-500 to-green-500" />
             </div>
         </form>
     );

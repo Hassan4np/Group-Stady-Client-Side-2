@@ -34,7 +34,7 @@ const Login = () => {
         UserGoogleLogin()
         .then((result) => {
             console.log(result.user);
-            // navegte(loc?.state ? loc.state:"/");
+            navegte(loc?.state ? loc.state:"/");
         })
         .catch(error => {
             console.log(error.message)

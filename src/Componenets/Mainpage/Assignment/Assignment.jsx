@@ -76,9 +76,9 @@ const Assignment = () => {
                         <h3 className="text-base font-medium mb-1">Category:</h3>
                         <select className="select select-bordered w-full max-w-xs text-base font-medium" onClick={(e) => setlevel(e.target.value)}>
                             <option disabled selected>Select one</option>
-                            <option>Easy</option>
-                            <option>Medium</option>
-                            <option>Hard</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
                         </select>
                     </div>
                 </div>
@@ -96,8 +96,8 @@ const Assignment = () => {
                                 </div>
                                 <div className="card-body ">
                                     <div className="flex justify-between">
-                                        <h2 className="card-title text-2xl font-bold text-gray-500">Name:<span className="text-lg font-bold">{item.title}</span></h2>
-                                        <h5 className="card-title text-md font-bold text-gray-500">Category:<span className="text-base font-medium">{item.level}</span></h5>
+                                        <h2 className="card-title text-xl lg:text-2xl font-bold">Name:<span className=" text-base lg:text-lg font-bold text-gray-700">{item.title}</span></h2>
+                                        <h5 className="card-title text-base lg:text-lg font-bold">Category:<span className=" text-sm lg:text-base font-medium">{item.level}</span></h5>
                                     </div>
                                     {/* <p>{item.description}</p> */}
                                     <div className="text-gray-500 text-base font-medium">
@@ -121,7 +121,7 @@ const Assignment = () => {
                 <div className="text-center mt-5">
                     <button className='p-2 px-5 rounded-md bg-green-500 mr-5' onClick={hendleprebutton}>Pre</button>
                     {
-                        pages.map((item, idx) => <button className={`p-2 px-5 ${page === idx ? 'bg-black text-white' : ''} rounded-md  bg-green-500 mr-5 `} key={idx} onClick={() => setpage(idx)}>{idx}</button>)
+                        pages.map((item, idx) => <button className={`p-2 px-5 ${page === idx ? 'bg-yellow-400 text-white' : ''} rounded-md  bg-green-500 mr-5 `} key={idx} onClick={() => setpage(idx)}>{idx}</button>)
                     }
                     <button className='p-2 px-5 rounded-md bg-green-500 mr-5' onClick={hendlenextbutton}>Next</button>
                 </div>

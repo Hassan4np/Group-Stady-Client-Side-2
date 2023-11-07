@@ -100,7 +100,7 @@ const AddAssignment = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Assignment" className="w-full mt-5 btn btn-success" />
+                <input type="submit" value="Add Assignment" className="w-full p-3 rounded-lg font-bold text-xl mt-5 text-gradient bg-gradient-to-r from-blue-500 to-green-500" />
             </div>
         </form>
     );

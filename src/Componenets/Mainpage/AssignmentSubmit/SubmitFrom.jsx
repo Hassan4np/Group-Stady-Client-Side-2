@@ -44,14 +44,14 @@ const SubmitFrom = () => {
         })
     }
     return (
-        <div className="min-h-[350px]">
-            <form onSubmit={submitfrom} className="p-10">
-                <div className="bg-[#F4F3F0] p-5">
+        <div className="min-h-[350px] flex justify-center items-center bg-no-repeat bg-cover object-cover "  style={{ backgroundImage: 'url(https://i.ibb.co/6RX75B6/5.jpg)' }}>
+            <form onSubmit={submitfrom} className="p-10 w-full lg:w-1/2  ">
+                <div className="bg-[#F4F3F0] p-5 border rounded-lg">
                     <h1 className="text-center text-2xl font-bold">SubmitFrom</h1>
                     <div className="md:flex space-x-10 space-y-5">
                         <div className="form-control md:w-full ">
                             <label className="label">
-                                <span className="label-text">PDF link</span>
+                                <span className="label-text text-xl font-bold">PDF Link:-</span>
                             </label>
                             <label className="input-group ">
                                 <input type="text" placeholder="PDF" name="pdf" className="input input-bordered w-full" />
@@ -60,14 +60,14 @@ const SubmitFrom = () => {
                     </div>
                     <div className="form-control md:w-full ">
                         <label className="label">
-                            <span className="label-text">Test Area</span>
+                            <span className="label-text text-xl font-bold">Test Area</span>
                         </label>
                         <label className="input-group">
                             <textarea className="textarea border text-xl textarea-primary h-32 w-full" name="text" placeholder="Write now"></textarea>
                         </label>
                     </div>
 
-                    <input type="submit" value="Submit" className="w-full mt-5 btn btn-success" />
+                    <input type="submit" value="Submit" className="w-full p-3 rounded-lg font-bold text-xl mt-5 text-gradient bg-gradient-to-r from-blue-500 to-green-500" />
                 </div>
             </form>
 
