@@ -12,17 +12,17 @@ const Assignment = () => {
     const { user } = useAuth();
     const Axios = useAxios();
     const [level, setlevel] = useState('')
-    const [page,setpage] = useState(0);
-  
+    const [page, setpage] = useState(0);
+
     const url = `/assignment?level=${level}&page=${page}`;
     console.log(level)
-  
+
     const getassignmentdata = async () => {
         const res = await Axios.get(url);
         return res
     }
     const { isPending, refetch, data } = useQuery({
-        queryKey: ['assignment',page,level],
+        queryKey: ['assignment', page, level],
         queryFn: getassignmentdata,
 
     })
@@ -34,7 +34,7 @@ const Assignment = () => {
 
     const count = data.data.count;
 
-    const allpages = Math.ceil(count/9);
+    const allpages = Math.ceil(count / 9);
     console.log(allpages)
     const pages = [... new Array(allpages).fill(0)]
     console.log(pages)
@@ -43,28 +43,28 @@ const Assignment = () => {
     const hengledelete = (id) => {
         console.log(id)
         Axios.delete(`/assginment?email=${user?.email}&id=${id}`)
-        .then(res=>{
-            console.log(res.data)
-            toast.success('Successfully toasted!')
-            refetch()
-        })
-        .catch(error=>{
-            console.log(error)
-            if(error){
-                toast.error("This didn't work.")
-            }
-        })
+            .then(res => {
+                console.log(res.data)
+                toast.success('Successfully toasted!')
+                refetch()
+            })
+            .catch(error => {
+                console.log(error)
+                if (error) {
+                    toast.error("This didn't work.")
+                }
+            })
     }
-    const hendleprebutton=()=>{
-        if(page>0){
-          setpage(page-1)
+    const hendleprebutton = () => {
+        if (page > 0) {
+            setpage(page - 1)
         }
-      }
-      const hendlenextbutton=()=>{
-        if(page<pages.length-1){
-          setpage(page+1)
+    }
+    const hendlenextbutton = () => {
+        if (page < pages.length - 1) {
+            setpage(page + 1)
         }
-      }
+    }
     return (
         <div className="min-h-[350px]">
             <div>
@@ -107,8 +107,8 @@ const Assignment = () => {
                                     </div>
                                     <div className="flex items-center justify-around">
 
-                                        <div className="btn-group btn-group-vertical lg:btn-group-horizontal text-center">
-                                          <Link to={`/updateassignment/${item?._id}`}>  <button className="btn bg-green-500  mr-5"><AiOutlineEdit></AiOutlineEdit></button></Link>
+                                        <div className=" btn-group-horizontal text-center">
+                                            <Link to={`/updateassignment/${item?._id}`}><button className="btn bg-green-500  mr-5"><AiOutlineEdit></AiOutlineEdit></button></Link>
                                             <Link to={`/viewassignment/${item?._id}`}><button className="btn mr-5 bg- bg-yellow-400">View</button></Link>
                                             <button className="btn bg-red-700" onClick={() => hengledelete(item?._id)}>X</button>
                                         </div>
@@ -119,11 +119,11 @@ const Assignment = () => {
                     }
                 </div>
                 <div className="text-center mt-5">
-                <button className='p-2 px-5 rounded-md bg-green-500 mr-5' onClick={hendleprebutton}>Pre</button>
-                {
-                    pages.map((item,idx)=><button className={`p-2 px-5 ${page===idx?'bg-black text-white':''} rounded-md  bg-green-500 mr-5 `} key={idx} onClick={()=>setpage(idx)}>{idx}</button>)
-                }
-                <button className='p-2 px-5 rounded-md bg-green-500 mr-5' onClick={hendlenextbutton}>Next</button>
+                    <button className='p-2 px-5 rounded-md bg-green-500 mr-5' onClick={hendleprebutton}>Pre</button>
+                    {
+                        pages.map((item, idx) => <button className={`p-2 px-5 ${page === idx ? 'bg-black text-white' : ''} rounded-md  bg-green-500 mr-5 `} key={idx} onClick={() => setpage(idx)}>{idx}</button>)
+                    }
+                    <button className='p-2 px-5 rounded-md bg-green-500 mr-5' onClick={hendlenextbutton}>Next</button>
                 </div>
             </div>
         </div>

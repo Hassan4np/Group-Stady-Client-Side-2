@@ -17,6 +17,8 @@ import Submitedprivate from "../../../PrivateRout/Submitedprivate";
 import Updateprivate from "../../../PrivateRout/Updateprivate";
 import AddAssignmentprivate from "../../../PrivateRout/AddAssignmentprivate";
 import Markprivate from "../../../PrivateRout/Markprivate";
+import MyAssignment from "../Assignment/MyAssignment";
+import MyassignmentPrivate from "../../../PrivateRout/MyassignmentPrivate";
 
 
 const Mybrowser = createBrowserRouter([
@@ -64,6 +66,10 @@ const Mybrowser = createBrowserRouter([
       {
         path:"/submitmarks/:id",
         element:<Markprivate><Submitmarks></Submitmarks></Markprivate>
+      },
+      {
+        path:'/myassignment',
+        element:<MyassignmentPrivate><MyAssignment></MyAssignment></MyassignmentPrivate>
       }
 
     ]

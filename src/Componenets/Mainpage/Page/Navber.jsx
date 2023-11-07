@@ -18,6 +18,7 @@ const Navber = () => {
             user && <NavLink className="mr-3 btn btn-sm" to={`/addassignment`}><li>Add Assignment</li></NavLink>
         }
         <NavLink className="mr-3 btn btn-sm" to="/submit"><li>Submitted</li></NavLink>
+        <NavLink className="mr-3 btn btn-sm" to="/myassignment"><li>My Assignment</li></NavLink>
 
 
     </div>
