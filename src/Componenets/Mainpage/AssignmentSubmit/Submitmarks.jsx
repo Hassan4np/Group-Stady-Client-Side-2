@@ -14,13 +14,14 @@ const Submitmarks = () => {
         return res
     }
     const { isPending, data } = useQuery({
-        queryKey: ['assignment'],
+        queryKey: ['assignment',id],
         queryFn: getassignmentdata,
 
     })
     if (isPending) {
         return <h1 className="text-2xl text-green-600">Loading...</h1>
     }
+    console.log(data.data)
     const {pdf,text,status} = data.data;
     console.log(status,text,pdf)
     const submitfrom = (event) => {

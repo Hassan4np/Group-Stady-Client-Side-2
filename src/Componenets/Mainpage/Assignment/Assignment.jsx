@@ -12,20 +12,34 @@ const Assignment = () => {
     const { user } = useAuth();
     const Axios = useAxios();
     const [level, setlevel] = useState('')
-    const url = `/assignment?level=${level}`;
+    const [page,setpage] = useState(0);
+  
+    const url = `/assignment?level=${level}&page=${page}`;
     console.log(level)
+  
     const getassignmentdata = async () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending, error, refetch, data } = useQuery({
-        queryKey: ['assignment'],
+    const { isPending, refetch, data } = useQuery({
+        queryKey: ['assignment',page,level],
         queryFn: getassignmentdata,
 
     })
+
     if (isPending) {
         return <h1 className="text-2xl text-green-600">Loading...</h1>
     }
+    // refetch();
+
+    const count = data.data.count;
+
+    const allpages = Math.ceil(count/9);
+    console.log(allpages)
+    const pages = [... new Array(allpages).fill(0)]
+    console.log(pages)
+    console.log(count)
+    console.log(page)
     const hengledelete = (id) => {
         console.log(id)
         Axios.delete(`/assginment?email=${user?.email}&id=${id}`)
@@ -41,6 +55,16 @@ const Assignment = () => {
             }
         })
     }
+    const hendleprebutton=()=>{
+        if(page>0){
+          setpage(page-1)
+        }
+      }
+      const hendlenextbutton=()=>{
+        if(page<pages.length-1){
+          setpage(page+1)
+        }
+      }
     return (
         <div className="min-h-[350px]">
             <div>
@@ -62,7 +86,7 @@ const Assignment = () => {
             <div className="mt-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" >
                     {
-                        data?.data?.map((item, idx) =>
+                        data?.data?.result?.map((item, idx) =>
                             <div key={idx} className="card  border bg-base-100 shadow-xl ">
                                 <div className="relative">
                                     <figure className="px-10 pt-10 w-full h-[220px] bg-cover">
@@ -93,6 +117,13 @@ const Assignment = () => {
                             </div>
                         )
                     }
+                </div>
+                <div className="text-center mt-5">
+                <button className='p-2 px-5 rounded-md bg-green-500 mr-5' onClick={hendleprebutton}>Pre</button>
+                {
+                    pages.map((item,idx)=><button className={`p-2 px-5 ${page===idx?'bg-black text-white':''} rounded-md  bg-green-500 mr-5 `} key={idx} onClick={()=>setpage(idx)}>{idx}</button>)
+                }
+                <button className='p-2 px-5 rounded-md bg-green-500 mr-5' onClick={hendlenextbutton}>Next</button>
                 </div>
             </div>
         </div>

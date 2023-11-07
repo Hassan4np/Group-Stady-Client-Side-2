@@ -6,7 +6,6 @@ import { useQuery } from "@tanstack/react-query";
 
 const DetailsAssignment = () => {
     const { id } = useParams();
-    const { user } = useAuth();
     const Axios = useAxios()
     const url = `/assignment/${id}`;
 
@@ -15,7 +14,7 @@ const DetailsAssignment = () => {
         return res
     }
     const { isPending, data } = useQuery({
-        queryKey: ['assignment'],
+        queryKey: ['assignment',id],
         queryFn: getassignmentdata,
 
     })

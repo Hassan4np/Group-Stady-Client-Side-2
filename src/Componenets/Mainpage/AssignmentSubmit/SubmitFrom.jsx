@@ -17,8 +17,8 @@ const SubmitFrom = () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending, error, data } = useQuery({
-        queryKey: ['assignment'],
+    const { isPending, data } = useQuery({
+        queryKey: ['assignment',id],
         queryFn: getassignmentdata,
 
     })

@@ -18,8 +18,8 @@ const UpdateAssignment = () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending, error, data } = useQuery({
-        queryKey: ['assignment'],
+    const { isPending,  data } = useQuery({
+        queryKey: ['assignment',id],
         queryFn: getassignmentdata,
 
     })
@@ -51,10 +51,11 @@ const UpdateAssignment = () => {
               
             }
             navigate('/addassignment')
+
         })
         .catch(error => {
             console.log(error)
-            if (error) {
+            if(error){
                 toast.error("This didn't work.")
             }
         })

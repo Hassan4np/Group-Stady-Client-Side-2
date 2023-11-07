@@ -1,24 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../../Hooks/useAxios";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
+
 
 
 const SubmitAssignment = () => {
+    const {user} = useAuth();
     const Axios = useAxios();
-    const url = `/submitedata?status=${'pending'}`;
+    const url = `/submitedata?status=${'pending'}&email=${user.email}`;
 
     const getassignmentdata = async () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending,  data } = useQuery({
-        queryKey: ['assignment'],
+    const { isPending,refetch,  data } = useQuery({
+        queryKey: ['submiteddata',user.email,"pending"],
         queryFn: getassignmentdata,
 
     })
+    refetch()
     if (isPending) {
         return <h1 className="text-2xl text-green-600">Loading...</h1>
     }
+    
 console.log(data.data)
     return (
         <div className='min-h-[350px]'>
