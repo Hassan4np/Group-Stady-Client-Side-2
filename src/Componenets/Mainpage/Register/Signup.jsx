@@ -6,6 +6,7 @@ import {  useState } from 'react';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
 import useAuth from '../../../Hooks/useAuth';
+import toast from 'react-hot-toast';
 const Signup = () => {
     const {UserSignup} = useAuth();
     const [error,seterror] = useState('')
@@ -18,27 +19,21 @@ const Signup = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name,email,password)
-       
-        // if (password.length < 6) {
-        //     seterror("Give 6 Character Password")
-        //     return;
-        // } else if ( !/[!@#$%^&*()_+{}\[\]:;<>,.?~\\|\-=]/.test(password)) {
-        //     seterror("Give me spical caracter");
-        //     return;
-        // }else if(!/[A-Z]/.test(password)){
-        //     seterror("Give me captial letter")
-        //     return;
-        // }
+
+        if (password.length < 6) {
+            seterror("Give 6 Character Password")
+            return;
+        } else if ( !/[!@#$%^&*()_+{}\[\]:;<>,.?~\\|\-=]/.test(password)) {
+            seterror("Give me spical caracter");
+            return;
+        }else if(!/[A-Z]/.test(password)){
+            seterror("Give me captial letter")
+            return;
+        }
         UserSignup(email,password)
         .then((result)=>{
             console.log(result.user)
-            Swal.fire({
-                position: 'top-center',
-                icon: 'success',
-                title: 'Your Register Successfully ',
-                showConfirmButton: false,
-                timer: 1500
-              })
+            toast.success('Successfully Register')
     
               updateProfile(result.user,{
                 displayName:name,

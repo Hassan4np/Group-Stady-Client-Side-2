@@ -7,9 +7,7 @@ import toast from "react-hot-toast";
 
 const SubmitFrom = () => {
     const { id } = useParams();
-    console.log(id)
     const { user } = useAuth();
-    console.log(id)
     const Axios = useAxios()
     const url = `/assignment/${id}`;
 
@@ -31,17 +29,15 @@ const SubmitFrom = () => {
         const form = event.target;
         const pdf = form.pdf.value;
         const text = form.text.value;
-        // console.log(pdf,text)
         const useremail = user.email;
         const username = user.displayName;
         const submitdata = {title,marks,useremail,username,pdf,text,img,description,level,date,status:"pending"}
-        console.log(submitdata)
         const urls = '/submitedata'
         Axios.post(urls,submitdata)
         .then(res=>{
             console.log(res.data)
             if(res.data.acknowledged){
-                toast.success('Successfully toasted!')
+                toast.success('Successfully Submit Assignment')
             }
         }).catch(error=>{
             console.log(error)

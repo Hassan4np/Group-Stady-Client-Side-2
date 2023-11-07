@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxios from "../../../Hooks/useAxios";
-import { Link } from "react-router-dom";
-
 
 const MyAssignment = () => {
     const {user} = useAuth();
@@ -29,19 +27,15 @@ console.log(data.data)
             <div className='min-h-[350px]'>
             <div className="overflow-x-auto">
                 <table className="table">
-                    {/* head */}
                     <thead>
-                        <tr>
-                  
+                        <tr>                
                             <th>Title</th>
                             <th>Total Mark</th>
                             <th>Student Name</th>
                             <th>Status</th>
-
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
                        {
                         data.data.map((infodata)=> <tr key={infodata._id} className="bg-base-200">
                         <td>{infodata?.title}</td>

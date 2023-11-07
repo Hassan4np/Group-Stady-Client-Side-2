@@ -27,7 +27,7 @@ const AddAssignment = () => {
             .then(res => {
                 console.log(res.data.acknowledged)
                 if (res.data.acknowledged) {
-                    toast.success('Successfully toasted!')
+                    toast.success('Successfully Assignment added')
                 }
             })
             .catch(error => {

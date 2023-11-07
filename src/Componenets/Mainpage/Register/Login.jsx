@@ -3,9 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from './../../../assets/images/login/login.svg';
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import Swal from 'sweetalert2';
-import axios from 'axios';
 import useAuth from '../../../Hooks/useAuth';
+import toast from 'react-hot-toast';
 const Login = () => {
     const { UserGoogleLogin, UserLogin } = useAuth();
     const [error, seterror] = useState('');
@@ -21,23 +20,15 @@ const Login = () => {
         console.log(email, password)
         UserLogin(email, password)
             .then((result) => {
-                const loggedinUpser = result.user;
-                console.log(loggedinUpser)
-                // axios.post('http://localhost:5001/jwt',user)
-                // .then(res=>{
-                //     console.log(res.data)
-                // })
-
-                // navegte(loc?.state ? loc.state:"/");
-
-
+                console.log(result.user)
+                toast.success('Successfully user Login')
+                navegte(loc?.state ? loc.state:"/");
             })
             .catch(error => {
                 console.log(error.message)
                 seterror(error.message)
                 return;
             })
-
     }
     const hendlegoogle = () => {
         UserGoogleLogin()

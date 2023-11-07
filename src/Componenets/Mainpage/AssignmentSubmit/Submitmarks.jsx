@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 const Submitmarks = () => {
     const Axios = useAxios();
     const { id } = useParams();
-    console.log(id)
     const url = `/submitedata/${id}`;
     const getassignmentdata = async () => {
         const res = await Axios.get(url);
@@ -35,7 +34,7 @@ const Submitmarks = () => {
         .then(res=>{
             console.log(res.data)
             if(res.data.acknowledged){
-                toast.success('Successfully toasted!')
+                toast.success('Give Marks Successfully ')
             }
         })
         .catch(error=>{

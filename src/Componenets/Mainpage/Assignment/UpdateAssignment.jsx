@@ -9,8 +9,7 @@ import toast from "react-hot-toast";
 const UpdateAssignment = () => {
     const { id } = useParams();
     const {user} = useAuth();
-    const navigate = useNavigate();
-    console.log(id)
+    const navegte = useNavigate();
     const Axios = useAxios()
     const url = `/assignment/${id}`;
 
@@ -47,11 +46,9 @@ const UpdateAssignment = () => {
         .then(res => {
             console.log(res.data.acknowledged)
             if (res.data.acknowledged) {
-                toast.success('Successfully toasted!')
-              
+                toast.success('Successfully Update')
+                navegte('/assignment')            
             }
-            navigate('/addassignment')
-
         })
         .catch(error => {
             console.log(error)
