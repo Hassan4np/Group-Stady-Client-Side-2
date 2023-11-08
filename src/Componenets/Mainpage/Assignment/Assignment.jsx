@@ -97,24 +97,27 @@ useEffect(()=>{
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 " >
                     {
                         data?.data?.result?.map((item, idx) =>
-                            <div key={idx} className="card  border bg-base-100 shadow-xl"  data-aos="flip-left">
+                            <div key={idx} className="card  border bg-base-100 shadow-xl lg:px-5"  data-aos="flip-left">
                                 <div className="relative">
                                     <figure className="px-10 pt-10 w-full h-[220px] bg-cover"> 
                                         <img src={item.img} alt="Shoes" className="rounded-xl" />
                                     </figure>
-                                    <p className=" absolute top-0 p-2  font-bold right-0 bg-green-500 rounded-lg mr-2 text-lg mt-2">Marks:{item.marks}</p>
+                                    <p className="text-green-600 text-lg absolute ml-28 md:ml-0 mr-5">{item.date}</p>
+
                                 </div>
-                                <div className="card-body ">
+                                <div className="card-body px-28 lg:px-1 ">
                                     <div className="flex justify-between">
                                         <h2 className="card-title text-xl lg:text-2xl text-green-500 font-bold">Name:<span className=" text-base lg:text-lg font-bold text-gray-700" >{item.title}</span></h2>
                                         <h5 className="card-title text-base lg:text-lg font-bold text-blue-500 ">Category:<span className=" text-sm lg:text-base text-black font-medium">{item.level}</span></h5>
                                     </div>
+                                    <h5 className="text-xl font-bold ">Mark: {item.marks}</h5>
                                     {/* <p>{item.description}</p> */}
                                     <div className="text-gray-500 text-base font-medium">
                                         {
                                             item?.description?.length > 100 ? <p>{item?.description.slice(0, 100)}</p> : <p>{item?.description}</p>
                                         }
                                     </div>
+                                    
                                     <div className="flex items-center justify-around">
 
                                         <div className=" btn-group-horizontal text-center">

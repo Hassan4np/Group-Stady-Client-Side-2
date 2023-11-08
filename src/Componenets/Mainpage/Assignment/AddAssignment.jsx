@@ -7,9 +7,13 @@ import cover from "..//..//../assets/images/about_us/from.jpg"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+// import React, { useState } from "react";
+// import DatePicker from "react-datepicker";
+// // import "react-datepicker/dist/react-datepicker.css";
 
 
 const AddAssignment = () => {
+    
     const { user } = useAuth()
     const Axios = useAxios();
     const url = '/assignment'
@@ -109,7 +113,7 @@ const AddAssignment = () => {
                             </label>
                             <label className="input-group">
                                 <input type="date" placeholder="Date" name="date" className="input input-bordered w-full" />
-                                {/* <DatePicker className='w-full' formatDate="dd/mm/yyyy" ></DatePicker> */}
+                              {/* <div>  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /></div> */}
                             </label>
                         </div>
                     </div>
