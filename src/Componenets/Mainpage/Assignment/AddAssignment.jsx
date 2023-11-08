@@ -3,6 +3,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import useAxios from '../../../Hooks/useAxios';
 import toast, { Toaster } from 'react-hot-toast';
 import useAuth from '../../../Hooks/useAuth';
+import cover from "..//..//../assets/images/about_us/from.jpg"
 
 
 const AddAssignment = () => {
@@ -39,70 +40,78 @@ const AddAssignment = () => {
 
     }
     return (
-        <form onSubmit={hendleaddProduct} className="p-10">
-            <div className="bg-[#F4F3F0] p-5">
-                <h1 className="text-center text-2xl font-bold">Add Assignment</h1>
-                <div className="md:flex space-x-4">
-                    <div className="form-control md:w-1/2 ">
-                        <label className="label">
-                            <span className="label-text">title</span>
-                        </label>
-                        <label className="input-group ">
-                            <input type="text" placeholder="Title" name="title" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ">
-                        <label className="label">
-                            <span className="label-text">description</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" placeholder="Description" name="description" className="input input-bordered w-full" />
-                        </label>
-                    </div>
+        <div className='lg:flex'>
+            <div className='flex-1'>
+                <div className=' mt-5 hidden lg:block  lg:mt-20 justify-center items-center'>
+                    <img className='mb-5' src={cover} alt="" />
                 </div>
-                <div className="md:flex space-x-4">
-                    <div className="form-control md:w-1/2 ">
-                        <label className="label">
-                            <span className="label-text">Marks</span>
-                        </label>
-                        <label className="input-group ">
-                            <input type="text" placeholder="Marks" name="marks" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ">
-                        <label className="label">
-                            <span className="label-text">Thumbnail Url</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" placeholder="Thumbnail" name="img" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                <div className="md:flex space-x-4">
-                    <div className="form-control md:w-1/2 ">
-                        <label className="label">
-                            <span className="label-text">Assignment Level</span>
-                        </label>
-                        <select className="select select-bordered w-full" name="level">
-                            <option disabled selected>Select one</option>
-                            <option>Easy</option>
-                            <option>Medium</option>
-                            <option>Hard</option>
-                        </select>
-                    </div>
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Date</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="date" placeholder="Date" name="date" className="input input-bordered w-full" />
-                            {/* <DatePicker className='' formatDate="dd/mm/yyyy" ></DatePicker> */}
-                        </label>
-                    </div>
-                </div>
-                <input type="submit" value="Add Assignment" className="w-full p-3 rounded-lg font-bold text-xl mt-5 text-gradient bg-gradient-to-r from-blue-500 to-green-500" />
             </div>
-        </form>
+            <form onSubmit={hendleaddProduct} className="p-10 w-full flex-1 lg:w-1/2">
+                
+                <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-md p-5">
+                <h1 className="text-center text-2xl font-bold">Add Assignment</h1>
+                    <div className="md:flex lg:space-x-4">
+                        <div className="form-control md:w-1/2 ">
+                            <label className="label">
+                                <span className="label-text text-xl lg:text-2xl ">Title</span>
+                            </label>
+                            <label className="input-group ">
+                                <input type="text" placeholder="Title"  name="title" className="input input-bordered w-full" required  />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2 ">
+                            <label className="label">
+                                <span className="label-text text-xl lg:text-2xl ">Description</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" placeholder="Description" name="description" className="input input-bordered w-full" required />
+                            </label>
+                        </div>
+                    </div>
+                    <div className="md:flex lg:space-x-4">
+                        <div className="form-control md:w-1/2 ">
+                            <label className="label">
+                                <span className="label-text text-xl lg:text-2xl ">Marks</span>
+                            </label>
+                            <label className="input-group ">
+                                <input type="text" placeholder="Marks" name="marks" className="input input-bordered w-full" required />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2 ">
+                            <label className="label">
+                                <span className="label-text text-xl lg:text-2xl ">Thumbnail Url</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" placeholder="Thumbnail" name="img" className="input input-bordered w-full" required />
+                            </label>
+                        </div>
+                    </div>
+                    <div className="md:flex lg:space-x-4">
+                        <div className="form-control md:w-1/2 ">
+                            <label className="label">
+                                <span className="label-text text-xl lg:text-2xl ">Assignment Level</span>
+                            </label>
+                            <select className="select select-bordered w-full" required name="level">
+                                <option disabled selected>Select one</option>
+                                <option>Easy</option>
+                                <option>Medium</option>
+                                <option>Hard</option>
+                            </select>
+                        </div>
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text text-xl lg:text-2xl ">Date</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="date" placeholder="Date" name="date" className="input input-bordered w-full" />
+                                {/* <DatePicker className='w-full' formatDate="dd/mm/yyyy" ></DatePicker> */}
+                            </label>
+                        </div>
+                    </div>
+                    <input type="submit" value="Add Assignment" className="w-full p-3 rounded-lg font-bold text-xl mt-5 text-gradient bg-gradient-to-r from-blue-500 to-green-500" />
+                </div>
+            </form>
+        </div>
     );
 };
 

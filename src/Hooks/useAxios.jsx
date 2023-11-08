@@ -5,7 +5,7 @@ import { AuthContext } from "../Componenets/Mainpage/AuthProvider.jsx/AuthProvid
 
 
 const axiose = axios.create({
-    baseURL: 'https://group-stady-backend-side.vercel.app',
+    baseURL: 'http://localhost:5000',
     withCredentials: true
 })
 const useAxios = () => {

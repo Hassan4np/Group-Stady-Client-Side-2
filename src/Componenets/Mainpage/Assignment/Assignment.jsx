@@ -96,8 +96,8 @@ const Assignment = () => {
                                 </div>
                                 <div className="card-body ">
                                     <div className="flex justify-between">
-                                        <h2 className="card-title text-xl lg:text-2xl font-bold">Name:<span className=" text-base lg:text-lg font-bold text-gray-700">{item.title}</span></h2>
-                                        <h5 className="card-title text-base lg:text-lg font-bold">Category:<span className=" text-sm lg:text-base font-medium">{item.level}</span></h5>
+                                        <h2 className="card-title text-xl lg:text-2xl text-green-500 font-bold">Name:<span className=" text-base lg:text-lg font-bold text-gray-700">{item.title}</span></h2>
+                                        <h5 className="card-title text-base lg:text-lg font-bold text-blue-500 ">Category:<span className=" text-sm lg:text-base text-black font-medium">{item.level}</span></h5>
                                     </div>
                                     {/* <p>{item.description}</p> */}
                                     <div className="text-gray-500 text-base font-medium">

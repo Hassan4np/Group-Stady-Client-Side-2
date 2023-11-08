@@ -4,6 +4,7 @@ import useAxios from "../../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import cover from "..//..//../assets/images/about_us/from.jpg"
 
 
 const UpdateAssignment = () => {
@@ -59,51 +60,52 @@ const UpdateAssignment = () => {
 
     }
     return (
-        <form onSubmit={hendleudateassignment} className="p-10">
-            <div className="bg-[#F4F3F0] p-5">
+        <div className="lg:flex">
+            <form onSubmit={hendleudateassignment} className="p-10 w-full lg:w-1/2 flex-1">
+            <div className="bg-gradient-to-r from-blue-500 to-green-500 rounded-md p-5">
                 <h1 className="text-center text-2xl font-bold">Update Assignment</h1>
-                <div className="md:flex space-x-4">
+                <div className="md:flex lg:space-x-4">
                     <div className="form-control md:w-1/2 ">
                         <label className="label">
-                            <span className="label-text">title</span>
+                            <span className="label-text text-xl lg:text-2xl">Title</span>
                         </label>
                         <label className="input-group ">
-                            <input type="text" placeholder="Title" defaultValue={title} name="title" className="input input-bordered w-full" />
+                            <input type="text" placeholder="Title" required defaultValue={title} name="title" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ">
                         <label className="label">
-                            <span className="label-text">description</span>
+                            <span className="label-text text-xl lg:text-2xl">Description</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" placeholder="Description" defaultValue={description} name="description" className="input input-bordered w-full" />
+                            <input type="text" placeholder="Description" required defaultValue={description} name="description" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
-                <div className="md:flex space-x-4">
+                <div className="md:flex lg:space-x-4">
                     <div className="form-control md:w-1/2 ">
                         <label className="label">
-                            <span className="label-text">Marks</span>
+                            <span className="label-text  text-xl lg:text-2xl">Marks</span>
                         </label>
                         <label className="input-group ">
-                            <input type="text" placeholder="Marks" defaultValue={marks} name="marks" className="input input-bordered w-full" />
+                            <input type="text" placeholder="Marks" required defaultValue={marks} name="marks" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ">
                         <label className="label">
-                            <span className="label-text">Thumbnail Url</span>
+                            <span className="label-text text-xl lg:text-2xl">Thumbnail Url</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" placeholder="Thumbnail" defaultValue={img} name="img" className="input input-bordered w-full" />
+                            <input type="text" placeholder="Thumbnail" required defaultValue={img} name="img" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
-                <div className="md:flex space-x-4">
+                <div className="md:flex lg:space-x-4">
                     <div className="form-control md:w-1/2 ">
                         <label className="label">
-                            <span className="label-text">Assignment Level</span>
+                            <span className="label-text text-xl lg:text-2xl">Assignment Level</span>
                         </label>
-                        <select className="select select-bordered w-full" defaultValue={level} name="level">
+                        <select className="select select-bordered w-full" required defaultValue={level} name="level">
                             <option disabled selected>Select one</option>
                             <option>Easy</option>
                             <option>Medium</option>
@@ -112,17 +114,23 @@ const UpdateAssignment = () => {
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Date</span>
+                            <span className="label-text text-xl lg:text-2xl">Date</span>
                         </label>
                         <label className="input-group">
-                            <input type="date" placeholder="Date" defaultValue={date} name="date" className="input input-bordered w-full" />
+                            <input type="date" placeholder="Date" required defaultValue={date} name="date" className="input input-bordered w-full" />
                             {/* <DatePicker className='' formatDate="dd/mm/yyyy" ></DatePicker> */}
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Update Assignment" className="w-full mt-5 p-3 rounded-lg font-bold text-xl text-gradient bg-gradient-to-r from-blue-500 to-green-500" />
+                <input type="submit" value="Update Assignment" className="w-full mt-5 p-3 rounded-lg font-bold text-xl text-gradient bg-gradient-to-r from-green-500 to-blue-500" />
             </div>
         </form>
+        <div className='flex-1'>
+                <div className=' mt-5 hidden lg:block  lg:mt-20 justify-center items-center'>
+                    <img className='mb-5' src={cover} alt="" />
+                </div>
+            </div>
+        </div>
     );
 };
 

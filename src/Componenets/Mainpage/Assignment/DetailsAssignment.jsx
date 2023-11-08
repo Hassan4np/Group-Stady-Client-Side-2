@@ -24,19 +24,26 @@ const DetailsAssignment = () => {
 
     return (
         <div>
-            <div className=" min-h-[350px] bg-base-200 border-2 py-10 ">
+            <div className=" min-h-[350px] bg-base-200 border-2 py-10 lg:px-10 mt-2 lg:mt-10 ">
                 <div className="hero-content flex-col lg:flex-row">
-                    <div className="relative">
+                    <div className="relative ">
                         <div >
                             <img src={img} className="max-w-sm  rounded-lg shadow-2xl" />
                             <p className="absolute top-0 mt-2 ml-2 bg-green-500 p-2 rounded-md"> Marks:{marks}</p>
+                          <div className="hidden lg:block">
+                          <Link to={`/submitfrom/${_id}`}> <button className="btn text-center mt-2 text-gradient bg-gradient-to-r from-blue-500 to-green-500 ">Take Assignment</button></Link>
+                          </div>
                         </div>
                     </div>
-                    <div className="mt-14 ml-24 lg:mt-0 lg:ml-5">
+                    <div className="mt-3 ml-24 lg:mt-0 lg:ml-5">
                         <h1 className=" text-2xl lg:text-3xl font-bold mb-2"> Name: <span className="text-xl lg:text-2xl text-gray-600">{title}</span></h1>
                         <h5 className=" text-lg lg:text-xl font-bold">Category:<span className="lg:text-xl text-lg text-gray-600" >{level}</span></h5>
-                        <p className="py-6">{description}</p>
-                        <Link to={`/submitfrom/${_id}`}> <button className="btn  text-gradient bg-gradient-to-r from-blue-500 to-green-500 ">Take Assignment</button></Link>
+                        <p className="text-base font-bold mt-1 text-blue-500"> Level: {level}</p>
+                        <p className="py-6 text-base w-full lg:w-3/4 text-gray-500">{description}</p>
+                        <div className=" lg:hidden">
+                          <Link to={`/submitfrom/${_id}`}> <button className="btn text-center mt-2 text-gradient bg-gradient-to-r from-blue-500 to-green-500 ">Take Assignment</button></Link>
+                          </div>
+                       
                     </div>
                 </div>
             </div>
