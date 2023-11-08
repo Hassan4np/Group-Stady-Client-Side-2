@@ -74,7 +74,8 @@ useEffect(()=>{
             setpage(page + 1)
         }
     }
-    
+    const b = data.data.result;
+    console.log(b)
     return (
         <div className="min-h-[350px]">
             <div>
@@ -102,7 +103,7 @@ useEffect(()=>{
                                     <figure className="px-10 pt-10 w-full h-[220px] bg-cover"> 
                                         <img src={item.img} alt="Shoes" className="rounded-xl" />
                                     </figure>
-                                    <p className="text-green-600 text-lg absolute ml-28 md:ml-0 mr-5">{item.date}</p>
+                                    <p className="text-green-600 text-lg absolute ml-28 md:ml-0 mr-5">{item?.date?.length>10 ?item?.date.slice(0,10):item.date}</p>
 
                                 </div>
                                 <div className="card-body px-28 lg:px-1 ">

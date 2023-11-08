@@ -11,12 +11,11 @@ const MyAssignment = () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending,refetch,  data } = useQuery({
-        queryKey: ['submiteddata',user.email,"pending"],
+    const { isPending,  data } = useQuery({
+        queryKey: ['submiteddata',user.email,"complate"],
         queryFn: getassignmentdata,
 
     })
-    refetch()
     if (isPending) {
         return <div className="text-center mt-32">
         <span className="loading text-center text-green-600 text-2xl loading-dots loading-lg"></span>
@@ -32,8 +31,10 @@ console.log(data.data)
                     <thead className="text-xl">
                         <tr>                
                             <th>Title</th>
-                            <th>Total Mark</th>
+                            <th>Totla Marks</th>
+                            <th> Mark</th>
                             <th>Student Name</th>
+                            <th>Feedback</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -41,8 +42,10 @@ console.log(data.data)
                        {
                         data.data.map((infodata)=> <tr key={infodata._id} className="bg-base-200">
                         <td>{infodata?.title}</td>
+                        <td>{infodata?.marks}</td>
                         <td>{infodata?.mainmark}</td>
                         <td>{infodata?.username}</td>
+                        <td>{infodata?.feedback}</td>
                         <td>{infodata?.status}</td>
                     </tr>)
                        }

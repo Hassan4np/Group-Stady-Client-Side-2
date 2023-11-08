@@ -1,4 +1,3 @@
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import useAxios from '../../../Hooks/useAxios';
 import toast, { Toaster } from 'react-hot-toast';
@@ -7,19 +6,22 @@ import cover from "..//..//../assets/images/about_us/from.jpg"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-// import React, { useState } from "react";
-// import DatePicker from "react-datepicker";
-// // import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 
 const AddAssignment = () => {
-    
+    const [startDate, setStartDate] = useState(new Date());
     const { user } = useAuth()
     const Axios = useAxios();
     const url = '/assignment'
-    useEffect(()=>{
-        AOS.init({duration:2000});
-    },[])
+    useEffect(() => {
+        AOS.init({ duration: 2000 });
+    }, [])
+    console.log(startDate)
+
     const hendleaddProduct = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -28,10 +30,10 @@ const AddAssignment = () => {
         const marks = form.marks.value;
         const level = form.level.value;
         const img = form.img.value;
-        const date = form.date.value;
+        // const date = form.date.value;
         const email = user.email;
         const assignmentdetails = {
-            title, description, marks, level, img, date, email
+            title, description, marks, level, img, date:startDate, email
         }
         Axios.post(url, assignmentdetails)
             .then(res => {
@@ -56,16 +58,16 @@ const AddAssignment = () => {
                 </div>
             </div>
             <form onSubmit={hendleaddProduct} className="p-10 w-full flex-1 lg:w-1/2" data-aos="flip-right">
-                
+
                 <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-md p-5">
-                <h1 className="text-center text-2xl font-bold">Add Assignment</h1>
+                    <h1 className="text-center text-2xl font-bold">Add Assignment</h1>
                     <div className="md:flex lg:space-x-4">
                         <div className="form-control md:w-1/2 ">
                             <label className="label">
                                 <span className="label-text text-xl lg:text-2xl ">Title</span>
                             </label>
                             <label className="input-group ">
-                                <input type="text" placeholder="Title"  name="title" className="input input-bordered w-full" required  />
+                                <input type="text" placeholder="Title" name="title" className="input input-bordered w-full" required />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ">
@@ -111,9 +113,17 @@ const AddAssignment = () => {
                             <label className="label">
                                 <span className="label-text text-xl lg:text-2xl ">Date</span>
                             </label>
-                            <label className="input-group">
-                                <input type="date" placeholder="Date" name="date" className="input input-bordered w-full" />
-                              {/* <div>  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /></div> */}
+                            <label className="input-group ">
+                                <div>
+                                    <DatePicker
+                                    
+                                        className="input input-bordered w-full"
+                                        selected={startDate}
+                                        onChange={(date) => setStartDate(date)} 
+                                        dateFormat='dd-MM-yyyy'
+                                        minDate={new Date()}
+                                        />                                     
+                                </div>
                             </label>
                         </div>
                     </div>

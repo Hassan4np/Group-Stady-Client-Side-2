@@ -46,7 +46,7 @@ const DetailsAssignment = () => {
                         <h1 className=" text-2xl lg:text-3xl font-bold mb-2"> Name: <span className="text-xl lg:text-2xl text-gray-600">{title}</span></h1>
                         <h5 className=" text-lg lg:text-xl font-bold">Category: <span className="lg:text-xl text-lg text-gray-600" >{level}</span></h5>
                         <p className="text-base font-bold mt-1 text-blue-500"> Level: {level}</p>
-                        <h5 className="text-lg font-bold">{date}</h5>
+                        <h5 className="text-lg font-bold">{date?.length>10?date.slice(0,10):date}</h5>
                         <p className="py-6 text-base w-full lg:w-3/4 text-gray-500">{description}</p>
                         <div className=" lg:hidden">
                           <Link to={`/submitfrom/${_id}`}> <button className="btn text-center mt-2 text-gradient bg-gradient-to-r from-blue-500 to-green-500 ">Take Assignment</button></Link>
