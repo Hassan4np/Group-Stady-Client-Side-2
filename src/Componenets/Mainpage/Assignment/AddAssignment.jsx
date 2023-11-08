@@ -4,13 +4,18 @@ import useAxios from '../../../Hooks/useAxios';
 import toast, { Toaster } from 'react-hot-toast';
 import useAuth from '../../../Hooks/useAuth';
 import cover from "..//..//../assets/images/about_us/from.jpg"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 const AddAssignment = () => {
     const { user } = useAuth()
     const Axios = useAxios();
     const url = '/assignment'
-
+    useEffect(()=>{
+        AOS.init({duration:2000});
+    },[])
     const hendleaddProduct = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -40,13 +45,13 @@ const AddAssignment = () => {
 
     }
     return (
-        <div className='lg:flex'>
-            <div className='flex-1'>
+        <div className='lg:flex' >
+            <div className='flex-1' data-aos="flip-left">
                 <div className=' mt-5 hidden lg:block  lg:mt-20 justify-center items-center'>
                     <img className='mb-5' src={cover} alt="" />
                 </div>
             </div>
-            <form onSubmit={hendleaddProduct} className="p-10 w-full flex-1 lg:w-1/2">
+            <form onSubmit={hendleaddProduct} className="p-10 w-full flex-1 lg:w-1/2" data-aos="flip-right">
                 
                 <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-md p-5">
                 <h1 className="text-center text-2xl font-bold">Add Assignment</h1>

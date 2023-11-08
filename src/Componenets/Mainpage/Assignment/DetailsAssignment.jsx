@@ -1,11 +1,16 @@
 import { Link, useParams } from "react-router-dom";
 import useAxios from "../../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const DetailsAssignment = () => {
     const { id } = useParams();
     const Axios = useAxios()
+    useEffect(()=>{
+        AOS.init({duration:2000});
+    },[])
     const url = `/assignment/${id}`;
 
     const getassignmentdata = async () => {
@@ -18,13 +23,15 @@ const DetailsAssignment = () => {
 
     })
     if (isPending) {
-        return <h1 className="text-5xl text-green-500">Loading...</h1>
+        return <div className="text-center mt-32">
+        <span className="loading text-center text-green-600 text-2xl loading-dots loading-lg"></span>
+     </div>
     }
     const { title, marks, img, description, level, _id } = data.data;
 
     return (
         <div>
-            <div className=" min-h-[350px] bg-base-200 border-2 py-10 lg:px-10 mt-2 lg:mt-10 ">
+            <div className=" min-h-[350px] bg-base-200 border-2 py-10 lg:px-10 mt-2 lg:mt-10 " data-aos="flip-up">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="relative ">
                         <div >

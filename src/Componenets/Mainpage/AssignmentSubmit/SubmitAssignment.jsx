@@ -21,7 +21,9 @@ const SubmitAssignment = () => {
     })
     refetch()
     if (isPending) {
-        return <h1 className="text-2xl text-green-600">Loading...</h1>
+        return <div className="text-center mt-32">
+        <span className="loading text-center text-green-600 text-2xl loading-dots loading-lg"></span>
+     </div>
     }
     
 console.log(data.data)

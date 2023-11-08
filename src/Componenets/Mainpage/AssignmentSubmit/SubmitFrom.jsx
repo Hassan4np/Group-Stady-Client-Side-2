@@ -3,12 +3,19 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxios from "../../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 
 
 const SubmitFrom = () => {
     const { id } = useParams();
     const { user } = useAuth();
     const Axios = useAxios()
+    useEffect(()=>{
+        AOS.init({duration:2000});
+    },[])
     const url = `/assignment/${id}`;
 
     const getassignmentdata = async () => {
@@ -21,7 +28,9 @@ const SubmitFrom = () => {
 
     })
     if (isPending) {
-        return <h1 className="text-5xl text-green-500">Loading...</h1>
+        return <div className="text-center mt-32">
+        <span className="loading text-center text-green-600 text-2xl loading-dots loading-lg"></span>
+     </div>
     }
     const { title, marks, img, description, level,date } = data.data;
     const submitfrom = (event) => {
@@ -45,7 +54,7 @@ const SubmitFrom = () => {
     }
     return (
         <div className="min-h-[350px] flex justify-center items-center bg-no-repeat bg-cover object-cover "  style={{ backgroundImage: 'url(https://i.ibb.co/6RX75B6/5.jpg)' }}>
-            <form onSubmit={submitfrom} className="p-10 w-full lg:w-1/2  ">
+            <form onSubmit={submitfrom} className="p-10 w-full lg:w-1/2  " data-aos="flip-right">
                 <div className="bg-[#F4F3F0] p-5 border rounded-lg">
                     <h1 className="text-center text-2xl font-bold">SubmitFrom</h1>
                     <div className="md:flex space-x-10 space-y-5">

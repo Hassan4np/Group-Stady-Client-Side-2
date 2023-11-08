@@ -2,9 +2,15 @@
 import p1 from './../../../assets/images/team/1.jpeg'
 import p2 from './../../../assets/images/team/2.jpeg'
 import p3 from './../../../assets/images/team/3.jpeg'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 const OutTeams = () => {
+    useEffect(()=>{
+        AOS.init({duration:2000});
+    },[])
     return (
-        <div>
+        <div  data-aos="zoom-out-left">
             <div className='text-center space-y-2'>
                 <h5 className='text-lg font-bold text-[#FF3811]'>Teacher</h5>
                 <h1 className='text-5xl font-bold text-black'>Our Teacher</h1>

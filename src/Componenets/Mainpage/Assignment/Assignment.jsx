@@ -1,18 +1,25 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAxios from "../../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { AiOutlineEdit } from 'react-icons/ai';
 import useAuth from '../../../Hooks/useAuth';
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Assignment = () => {
+   
     const { user } = useAuth();
     const Axios = useAxios();
     const [level, setlevel] = useState('')
     const [page, setpage] = useState(0);
+//Animation ------>
+useEffect(()=>{
+    AOS.init({duration:2000});
+},[])
 
     const url = `/assignment?level=${level}&page=${page}`;
     console.log(level)
@@ -28,10 +35,12 @@ const Assignment = () => {
     })
 
     if (isPending) {
-        return <h1 className="text-2xl text-green-600">Loading...</h1>
+        return <div className="text-center mt-32">
+                 <span className="loading text-center text-green-600 text-2xl loading-dots loading-lg"></span>
+              </div>
     }
     // refetch();
-
+    
     const count = data.data.count;
 
     const allpages = Math.ceil(count / 9);
@@ -65,6 +74,7 @@ const Assignment = () => {
             setpage(page + 1)
         }
     }
+    
     return (
         <div className="min-h-[350px]">
             <div>
@@ -84,19 +94,19 @@ const Assignment = () => {
                 </div>
             </div>
             <div className="mt-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 " >
                     {
                         data?.data?.result?.map((item, idx) =>
-                            <div key={idx} className="card  border bg-base-100 shadow-xl ">
+                            <div key={idx} className="card  border bg-base-100 shadow-xl"  data-aos="flip-left">
                                 <div className="relative">
-                                    <figure className="px-10 pt-10 w-full h-[220px] bg-cover">
+                                    <figure className="px-10 pt-10 w-full h-[220px] bg-cover"> 
                                         <img src={item.img} alt="Shoes" className="rounded-xl" />
                                     </figure>
                                     <p className=" absolute top-0 p-2  font-bold right-0 bg-green-500 rounded-lg mr-2 text-lg mt-2">Marks:{item.marks}</p>
                                 </div>
                                 <div className="card-body ">
                                     <div className="flex justify-between">
-                                        <h2 className="card-title text-xl lg:text-2xl text-green-500 font-bold">Name:<span className=" text-base lg:text-lg font-bold text-gray-700">{item.title}</span></h2>
+                                        <h2 className="card-title text-xl lg:text-2xl text-green-500 font-bold">Name:<span className=" text-base lg:text-lg font-bold text-gray-700" >{item.title}</span></h2>
                                         <h5 className="card-title text-base lg:text-lg font-bold text-blue-500 ">Category:<span className=" text-sm lg:text-base text-black font-medium">{item.level}</span></h5>
                                     </div>
                                     {/* <p>{item.description}</p> */}

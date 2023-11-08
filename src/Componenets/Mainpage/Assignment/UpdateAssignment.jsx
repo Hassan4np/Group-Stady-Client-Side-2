@@ -5,6 +5,9 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import cover from "..//..//../assets/images/about_us/from.jpg"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 const UpdateAssignment = () => {
@@ -12,6 +15,9 @@ const UpdateAssignment = () => {
     const {user} = useAuth();
     const navegte = useNavigate();
     const Axios = useAxios()
+    useEffect(()=>{
+        AOS.init({duration:2000});
+    },[])
     const url = `/assignment/${id}`;
 
     const getassignmentdata = async () => {
@@ -24,7 +30,9 @@ const UpdateAssignment = () => {
 
     })
     if (isPending) {
-        return <h1 className="text-5xl text-green-500">Loading...</h1>
+        return <div className="text-center mt-32">
+        <span className="loading text-center text-green-600 text-2xl loading-dots loading-lg"></span>
+     </div>
     }
     const { title, marks, img, description, level, date} = data.data;
 
@@ -61,7 +69,7 @@ const UpdateAssignment = () => {
     }
     return (
         <div className="lg:flex">
-            <form onSubmit={hendleudateassignment} className="p-10 w-full lg:w-1/2 flex-1">
+            <form onSubmit={hendleudateassignment} className="p-10 w-full lg:w-1/2 flex-1" data-aos="flip-left">
             <div className="bg-gradient-to-r from-blue-500 to-green-500 rounded-md p-5">
                 <h1 className="text-center text-2xl font-bold">Update Assignment</h1>
                 <div className="md:flex lg:space-x-4">
@@ -125,7 +133,7 @@ const UpdateAssignment = () => {
                 <input type="submit" value="Update Assignment" className="w-full mt-5 p-3 rounded-lg font-bold text-xl text-gradient bg-gradient-to-r from-green-500 to-blue-500" />
             </div>
         </form>
-        <div className='flex-1'>
+        <div className='flex-1' data-aos="flip-right">
                 <div className=' mt-5 hidden lg:block  lg:mt-20 justify-center items-center'>
                     <img className='mb-5' src={cover} alt="" />
                 </div>

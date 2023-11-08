@@ -2,11 +2,17 @@ import { useParams } from "react-router-dom";
 import useAxios from "../../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 const Submitmarks = () => {
     const Axios = useAxios();
     const { id } = useParams();
+    useEffect(()=>{
+        AOS.init({duration:2000});
+    },[])
     const url = `/submitedata/${id}`;
     const getassignmentdata = async () => {
         const res = await Axios.get(url);
@@ -18,7 +24,9 @@ const Submitmarks = () => {
 
     })
     if (isPending) {
-        return <h1 className="text-2xl text-green-600">Loading...</h1>
+        return <div className="text-center mt-32">
+        <span className="loading text-center text-green-600 text-2xl loading-dots loading-lg"></span>
+     </div>
     }
     console.log(data.data)
     const {pdf,text,status} = data.data;
@@ -45,15 +53,15 @@ const Submitmarks = () => {
         })
     }
     return (
-        <div className="min-h-[350px] lg:flex "> 
-            <div className="px-10 flex-1 ">
+        <div className="min-h-[350px] lg:flex " > 
+            <div className="px-10 flex-1 " data-aos="fade-right">
                 <h1 className="text-xl mb-5 p-3 mt-5 font-bold "> PDF Link : {pdf}</h1>
                <div>
                 <p className="text-xl font-bold p-3 ">Note: </p>
                <p className=" text-lg border font-bold rounded-md w-full min-h-[100px] lg:min-h-[275px] p-3">{text} </p>
                </div>
             </div>
-            <form onSubmit={submitfrom} className="p-10 flex-1">
+            <form onSubmit={submitfrom} className="p-10 flex-1" data-aos="fade-left">
                 <div className="bg-[#F4F3F0] p-5">
                     <div className="md:flex space-x-10 space-y-5">
                         <div className="form-control md:w-full ">
