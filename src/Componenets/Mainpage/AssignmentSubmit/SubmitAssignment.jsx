@@ -32,8 +32,8 @@ console.log(data.data)
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead className="text-xl">
-                        <tr>
+                    <thead className="text-xl text-gray-800">
+                        <tr className="">
                   
                             <th>Title</th>
                             <th>Total Mark</th>
@@ -43,7 +43,7 @@ console.log(data.data)
 
                         </tr>
                     </thead>
-                    <tbody className="mt-5 text-base text-gray-600 font-bold">
+                    <tbody className="mt-5 text-base text-gray-700 font-bold">
         
                        {
                         data.data.map((infodata)=> <tr key={infodata._id} className="bg-base-200">

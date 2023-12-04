@@ -41,9 +41,9 @@ useEffect(()=>{
     }
     // refetch();
     
-    const count = data.data.count;
+    const count = data?.data?.count;
 
-    const allpages = Math.ceil(count / 9);
+    const allpages = Math?.ceil(count / 9);
     console.log(allpages)
     const pages = [... new Array(allpages).fill(0)]
     console.log(pages)
@@ -51,7 +51,10 @@ useEffect(()=>{
     console.log(page)
     const hengledelete = (id) => {
         console.log(id)
-        Axios.delete(`/assginment?email=${user?.email}&id=${id}`)
+        //delete option
+        // Axios.delete(`/assginment?email=${user?.email}&id=${id}`)
+        //not a delete--------->
+        Axios.delete(`/assginments?email=${user?.email}&id=${id}`)
             .then(res => {
                 console.log(res.data)
                 toast.success('Successfully toasted!')
@@ -86,7 +89,7 @@ useEffect(()=>{
                     <div className="mt-2">
                         <h3 className="text-base font-medium mb-1">Category:</h3>
                         <select className="select select-bordered w-full max-w-xs text-base font-medium" onClick={(e) => setlevel(e.target.value)}>
-                            <option disabled selected>Select one</option>
+                            <option selected disabled >Select one</option>
                             <option value="Easy">Easy</option>
                             <option value="Medium">Medium</option>
                             <option value="Hard">Hard</option>

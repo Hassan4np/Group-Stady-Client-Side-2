@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const MyAssignment = () => {
     const { user } = useAuth();
@@ -18,7 +19,7 @@ const MyAssignment = () => {
         const res = await Axios.get(url);
         return res
     }
-    const { isPending, data } = useQuery({
+    const { isPending, data,refetch } = useQuery({
         queryKey: ['submiteddata', user.email, "complate"],
         queryFn: getassignmentdata,
 
@@ -30,6 +31,19 @@ const MyAssignment = () => {
     }
 
     console.log(data.data)
+    const hendledelete = (id) => {
+
+        console.log(id)
+        Axios.delete(`/submitedata/${id}`)
+        .then(res=>{
+            console.log(res.data);
+            toast.success('Successfully delete ')
+            refetch()
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
     return (
         <div className=" py-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-md space-x-2 p-10 lg:p-0">
@@ -46,6 +60,7 @@ const MyAssignment = () => {
                             <p className="min-h-[150px] w-[200] text-lg font-bold ">
                                 <span className=" font-normal">{item.feedback}</span>
                             </p>
+                            <button onClick={() => hendledelete(item._id)} className="btn btn-succe">delete</button>
                         </div>)
                 }
             </div>
