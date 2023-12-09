@@ -3,13 +3,15 @@
 
 #### Server Link : https://github.com/Hassan4np/Group-Stady-backend-Side-1
 
-###  Projects Features : -
-#### Assignment : -
+## Projects Details
+ 
+### Projects Nmae :  Assignment
+ ####  Projects Features : - 
 - user submit assignment
 - user add assigmentuser 
 - Admin Provide Marks
 
-### Projects  Technologies :
+#### Projects  Technologies :
 - React.js
 - mongodb,
 - node.js
@@ -19,4 +21,5 @@
 - TanStack query.
 - React library
 - components
+- react icone
 
