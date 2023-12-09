@@ -1,14 +1,12 @@
-import { useEffect } from "react";
+
 import p1 from "./../../../assets/images/banner/1.jpg"
 import p2 from "./../../../assets/images/banner/2.jpg"
 import p3 from "./../../../assets/images/banner/3.jpeg"
-import AOS from 'aos';
+
 import 'aos/dist/aos.css';
 
 const Bannar = () => {
-    useEffect(()=>{
-        AOS.init({duration:2000});
-    },[])
+  
     return (
         <div>
             <div className="carousel w-full ">

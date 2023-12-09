@@ -1,8 +1,22 @@
- Live link: https://auth-project-4064d.web.app </br></br>
+ 
+ #### Live link : https://auth-project-4064d.web.app 
 
- Our Webside Features </br></be>
- 1.Our website best carefully shows the Assignment</br>
- 2.Your assignment we are properly provided with assignment give mark.</br>
- 3.Our best teacher shows your assignment.</br>
- 4.After showing assignment marks we will provide feedback your improvement or dimension</br>
- 5.we are providing your assignment with how improved day by day and good marks
+#### Server Link : https://github.com/Hassan4np/Group-Stady-backend-Side-1
+
+###  Projects Features : -
+#### Assignment : -
+- user submit assignment
+- user add assigmentuser 
+- Admin Provide Marks
+
+### Projects  Technologies :
+- React.js
+- mongodb,
+- node.js
+- react router.
+- jwt token
+- Axios
+- TanStack query.
+- React library
+- components
+
