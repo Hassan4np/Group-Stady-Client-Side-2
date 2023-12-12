@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import logo from "../../../assets/images/logo/assignment.jpg"
+import { MdGTranslate } from "react-icons/md";
 import "./Navbar.css"
 const Navber = () => {
     const { user, UserLogout } = useAuth();
@@ -19,6 +20,8 @@ const Navber = () => {
         }
         <NavLink className="mr-3 btn btn-sm" to="/submit"><li>Submitted</li></NavLink>
         <NavLink className="mr-3 btn btn-sm" to="/myassignment"><li>My Assignment</li></NavLink>
+
+       
 
 
     </div>
@@ -44,11 +47,13 @@ const Navber = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
+                 
                     <ul className="menu menu-horizontal px-1">
                         {Links}
                     </ul>
                 </div>
                 <div className="navbar-end">
+                <button className="mr-2 p-2 border"><a href="https://www.google.com/search?q=google+translate&=goog&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIOCAEQRRgnGDsYgAQYigUyBggCEEUYOTIGCAMQABg4MgYIBBBFGEEyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgxOTUwajFqN6gCALACAA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer" className=""><MdGTranslate className="text-2xl text-black"></MdGTranslate></a></button>
                     {
                         user?.photoURL &&
                         <div className="avatar online">

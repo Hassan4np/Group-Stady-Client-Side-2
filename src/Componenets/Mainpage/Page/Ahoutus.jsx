@@ -1,16 +1,12 @@
 
 import about from './../../../assets/images/about_us/man3.jpeg'
-import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
 
 const Ahoutus = () => {
-    useEffect(()=>{
-        AOS.init({duration:2000});
-    },[])
+  
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row p-5" data-aos="zoom-out-up">
+            <div className="hero-content flex-col lg:flex-row p-5" >
                 <div className='flex-1 p-5 '>
                     <img src={about} className=" w-[460px] h-[473px] object-cover rounded-lg shadow-2xl flex-1" />
                     {/* <img className='max-w-sm absolute right-0 top-[70%]  lg:top-2/3 mr-8 border-8 border-white rounded-md' src={subadount} alt="" /> */}
